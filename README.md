@@ -8,3 +8,5 @@
 2021-03-15 新增快速導覽內容，希望在2-3小時內可以對Python程式、機器學習在做什麼有些概念，知道有哪些Python工具可以用來做機器學習。
 + [Python Quick Start](https://colab.research.google.com/github/twMr7/Python-Machine-Learning/blob/master/QuickStart/Python_Quick_Start.ipynb) － Colab 開啟。
 + [Python Machine Learning Quick Tour](https://colab.research.google.com/github/twMr7/Python-Machine-Learning/blob/master/QuickStart/Python_Machine_Learning_Quick_Tour.ipynb) － Colab 開啟。
+# Hw1
+# Hw2
