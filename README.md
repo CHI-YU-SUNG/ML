@@ -9,4 +9,6 @@
 + [Python Quick Start](https://colab.research.google.com/github/twMr7/Python-Machine-Learning/blob/master/QuickStart/Python_Quick_Start.ipynb) － Colab 開啟。
 + [Python Machine Learning Quick Tour](https://colab.research.google.com/github/twMr7/Python-Machine-Learning/blob/master/QuickStart/Python_Machine_Learning_Quick_Tour.ipynb) － Colab 開啟。
 # Hw1
+Multiple regression
 # Hw2
+Gradient descent
