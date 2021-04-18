@@ -117,6 +117,8 @@ if __name__ == "__main__":
         # if the user has pressed "q", then stop looping
         if keypress == ord("q"):
             break
+  
+
 
 # free up memory
 pipeline.stop()
