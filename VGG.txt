@@ -1,0 +1,45 @@
+1. Run the Docker Image to build the docker container，並指定tensorflow-gpu版本與連接Server和容器內home裡的資料夾路徑
+
+docker run -it --gpus all --name (Server dir):(/home/dir)  tensorflow/tensorflow:1.X.0-gpu-py3 bash
+
+
+2. Install CUDA & CudNN
+
+	CUDA : 
+		至NVIDIA官網下載CUDA .deb file 並傳輸到server中與container資料夾連接的路徑中
+		dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb (根據Ubuntu與安裝之CUDA版本更改)
+		apt-get update
+		apt install cuda-toolkit-9-0 (根據安裝的CUDA版本更改)
+                安裝完要設置環境變數
+		apt-get install nano
+		nano ~/.bashrc
+
+		add :
+			export PATH=/usr/local/cuda-9.0/bin:$PATH (根據安裝的CUDA版本更改)
+			export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH (根據安裝的CUDA版本更改)
+		
+		ctrl+o -> save / then press enter / and ctrl+x back to terminal
+		source ~/.bashrc (輸入此指令，不須重開機即可執行更新的環境變數)
+
+	CudNN :
+		first copy the compressed file to the server
+		在container裡 cd 到這個路徑 usr/local/cuda 然後 copy the cudNN  file to here
+		tar -xzvf cudnn-9.0-linux-x64-v7.6.5.32.tgz (根據安裝的CudNN版本更改)
+		cp cuda/include/cudnn.h /usr/local/cuda/include
+		cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+		cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A2 確認cudnn version 和安裝是否成功
+		有些版本: https://ithelp.ithome.com.tw/articles/10191693
+
+	torch & torchvision:
+		pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp36-cp36m-linux_x86_64.whl(根據安裝的CudNN版本更改)
+		pip install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp36-cp36m-linux_x86_64.whl(根據安裝的CudNN版本更改)
+檢查package:$ pip freeze
+
+pip install tensorflow-gpu==1.10.0 --ignore-installed --user
+
+改g++ 版本:
+
+update-alternatives --config python3
+
+
+  
